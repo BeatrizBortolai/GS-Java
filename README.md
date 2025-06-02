@@ -37,7 +37,7 @@ O Elo é uma plataforma digital desenvolvida com o objetivo de conectar voluntá
 | `GET`    | `/usuario/{id}`    | Retorna um único usuário pelo ID.                                | 200, 404     |                               |
 | `POST`   | `/usuario/cadastro`| Cria um novo usuário.                                            | 201, 400     |                               |
 | `POST`   | `/usuario/login`   | Realiza login e retorna um token JWT.                            | 200          |                               |
-| `PUT`    | `/usuario/{id}`    | Atualiza os dados de um usuário (apenas se autenticado com JWT). | 200, 401     | Authorization: Bearer {token} |
+| `PUT`    | `/usuario/{id}`    | Atualiza os dados de um usuário (apenas se autenticado com JWT). | 200, 400     | Authorization: Bearer {token} |
 | `DELETE` | `/usuario/{id}`    | Deleta o usuário com o ID especificado.       | 200          ||
  
 #### Body - Exemplo para Cadastro.
