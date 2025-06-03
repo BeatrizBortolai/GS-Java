@@ -77,7 +77,11 @@ public class MissaoResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response criarMissao(MissaoCriadaDto dto) {
-        if (dto.getTitulo() == null || dto.getDescricao().trim().isEmpty() || dto.getOrganizacao().trim().isEmpty() || dto.getLocalizacao().trim().isEmpty()) {
+        if (dto.getTitulo() == null || dto.getTitulo().trim().isEmpty() ||
+                dto.getDescricao() == null || dto.getDescricao().trim().isEmpty() ||
+                dto.getOrganizacao() == null || dto.getOrganizacao().trim().isEmpty() ||
+                dto.getLocalizacao() == null || dto.getLocalizacao().trim().isEmpty()) {
+
             return Response.status(Response.Status.BAD_REQUEST)
                     .entity("Os campos não podem estar vazios ou conter apenas espaços.")
                     .build();

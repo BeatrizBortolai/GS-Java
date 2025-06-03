@@ -15,6 +15,10 @@ public class UsuarioService {
             throw new IllegalArgumentException("As senhas não coincidem.");
         }
 
+        if (dto.getCategoria() == null || dto.getCategoria().trim().isEmpty()) {
+            throw new IllegalArgumentException("Informe a categoria do usuário: Moderador ou Voluntário.");
+        }
+
         Optional<Usuario> usuarioExistente = usuarioRepository.buscarPorEmail(dto.getEmail());
 
         if (usuarioExistente.isPresent()) {

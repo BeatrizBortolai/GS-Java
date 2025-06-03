@@ -58,7 +58,11 @@ public class AlertaResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response criarAlerta(AlertaCriadoDto dto) {
-        if (dto.getTitulo() == null || dto.getDescricao().trim().isEmpty() || dto.getLocalizacao().trim().isEmpty() || dto.getRecomendacao().trim().isEmpty()) {
+        if (dto.getTitulo() == null || dto.getTitulo().trim().isEmpty() ||
+                dto.getDescricao() == null || dto.getDescricao().trim().isEmpty() ||
+                dto.getLocalizacao() == null || dto.getLocalizacao().trim().isEmpty() ||
+                dto.getRecomendacao() == null || dto.getRecomendacao().trim().isEmpty()) {
+
             return Response.status(Response.Status.BAD_REQUEST)
                     .entity("Os campos não podem estar vazios ou conter apenas espaços.")
                     .build();
