@@ -72,9 +72,9 @@ O Elo é uma plataforma digital desenvolvida com o objetivo de conectar voluntá
 
 ###  Missão - Base URL.
 
-```http
+
   http://localhost:8080/missao
-```
+
 
 #### Rotas para Missão.
 
@@ -107,9 +107,9 @@ O Elo é uma plataforma digital desenvolvida com o objetivo de conectar voluntá
 ```
 
 ###  Alerta - Base URL.
-```http
+
   http://localhost:8080/alerta
-```
+
 
 #### Rotas para Alerta.
 
