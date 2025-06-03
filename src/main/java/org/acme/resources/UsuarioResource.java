@@ -65,14 +65,8 @@ public class UsuarioResource {
             // Tenta autenticar o usuário (lança IllegalArgumentException se falhar)
             Usuario usuario = usuarioService.loginUsuario(dto.getEmail(), dto.getSenha());
 
-            // Gera token JWT, usando o email como subject (pode usar id, se preferir)
-            String token = JwtUtil.gerarToken(usuario.getEmail());
-
-            // Retorna o token num JSON simples (pode incluir outros dados se quiser)
-            return Response.ok(Map.of(
-                    "token", token,
-                    "usuario", usuario // opcional, se quiser devolver os dados do usuário
-            )).build();
+            String token = JwtUtil.gerarToken(String.valueOf(usuario.getId()));
+            return Response.ok(Collections.singletonMap("token", token)).build();
 
         } catch (IllegalArgumentException e) {
             return Response.status(Response.Status.UNAUTHORIZED).entity(e.getMessage()).build();
@@ -94,14 +88,15 @@ public class UsuarioResource {
                 return Response.status(Response.Status.UNAUTHORIZED).entity("Token JWT obrigatório").build();
             }
 
-            String token = authHeader.substring("Bearer ".length());
+            // 1. Extrair e validar token JWT
+            String idDoTokenStr = JwtUtil.validarToken(authHeader);
+            int idDoToken = Integer.parseInt(idDoTokenStr);
 
-            // Valida o token e pega o email do usuário
-            String emailDoToken;
-            try {
-                emailDoToken = JwtUtil.validarToken(token);
-            } catch (Exception e) {
-                return Response.status(Response.Status.UNAUTHORIZED).entity("Token inválido ou expirado").build();
+            // 2. Verificar se o ID no token bate com o ID da URL
+            if (idDoToken != id) {
+                return Response.status(Response.Status.FORBIDDEN)
+                        .entity("Você não tem permissão para atualizar este usuário.")
+                        .build();
             }
 
             // Verifica se o email do token bate com o do usuário que vai atualizar
@@ -110,9 +105,6 @@ public class UsuarioResource {
                 return Response.status(Response.Status.NOT_FOUND).entity("Usuário não encontrado").build();
             }
 
-            if (!usuarioNoBanco.getEmail().equals(emailDoToken)) {
-                return Response.status(Response.Status.FORBIDDEN).entity("Você só pode atualizar seu próprio perfil").build();
-            }
 
             // Atualiza o usuário normalmente
             usuarioService.atualizarUsuario(id, dto);

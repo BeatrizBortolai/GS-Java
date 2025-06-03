@@ -16,7 +16,7 @@ public class JwtUtil {
 
     public static String gerarToken(String login) {
         JwtBuilder builder = Jwts.builder()
-                .setSubject(login)
+                .setSubject(String.valueOf(login))
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRACAO))
                 .signWith(CHAVE, SignatureAlgorithm.HS256);
