@@ -126,10 +126,8 @@ O Elo é uma plataforma digital desenvolvida com o objetivo de conectar voluntá
   {
     "titulo": "Alagamento no Itaim Paulista após tempestade",
     "localizacao": "Avenida Marechal Tito, Itaim Paulista - São Paulo/SP",
-    "descricao": "Chuvas fortes causaram alagamento nas ruas e prejudicaram o
-    transporte público.",
-    "recomendacao": "Permaneça em locais seguros, evite contato com a água da enchente
-    e não dirija por ruas alagadas."
+    "descricao": "Chuvas fortes causaram alagamento nas ruas e prejudicaram o transporte público.",
+    "recomendacao": "Permaneça em locais seguros, evite contato com a água da enchente e não dirija por ruas alagadas."
   }
 ```
 
@@ -138,9 +136,7 @@ O Elo é uma plataforma digital desenvolvida com o objetivo de conectar voluntá
   {
     "titulo": "Alagamento no Itaim Paulista após tempestade intensa",
     "localizacao": "Avenida Marechal Tito, Itaim Paulista - São Paulo/SP",
-    "descricao": "Chuvas intensas causaram alagamento nas ruas e prejudicaram o
-    transporte público.",
-    "recomendacao": "Permaneça em um local seguro, evite contato com a água da enchente
-    e não dirija por ruas alagadas."
+    "descricao": "Chuvas intensas causaram alagamento nas ruas e prejudicaram o transporte público.",
+    "recomendacao": "Permaneça em um local seguro, evite contato com a água da enchente e não dirija por ruas alagadas."
   }
 ```
