@@ -36,7 +36,7 @@ O Elo é uma plataforma digital desenvolvida com o objetivo de conectar voluntá
 | `GET`    | `/usuario`         | Retorna a lista de todos os usuários cadastrados.                | 200          |                               |
 | `GET`    | `/usuario/{id}`    | Retorna um único usuário pelo ID.                                | 200, 404     |                               |
 | `POST`   | `/usuario/cadastro`| Cria um novo usuário.                                            | 201, 400     |                               |
-| `POST`   | `/usuario/login`   | Realiza login e retorna um token JWT.                            | 200          |                               |
+| `POST`   | `/usuario/login`   | Realiza login e retorna um token JWT.                            | 200, 401    |                               |
 | `PUT`    | `/usuario/{id}`    | Atualiza os dados de um usuário (apenas se autenticado com JWT). | 200, 400     | Authorization: Bearer {token} |
 | `DELETE` | `/usuario/{id}`    | Deleta o usuário com o ID especificado.       | 200          ||
  
@@ -81,10 +81,11 @@ O Elo é uma plataforma digital desenvolvida com o objetivo de conectar voluntá
 | Método   | Rota           | Descrição                                   | Status Codes |
 | :------- | :------------- | :------------------------------------------ |:-------------|
 | `GET`    | `/missao`      | Retorna a lista de todas as missões criadas.| 200          |
+| `GET`    | `/missao/listar`| Retorna todas missões não deletadas.       | 200          |
 | `GET`    | `/missao/{id}` | Retorna uma única missão pelo ID.           | 200, 404     |
-| `POST`   | `/missao/criar`| Cria uma nova missão.                       | 201          |
-| `PUT`    | `/missao/{id}` | Atualiza os dados de uma missão.            | 200, 401     |
-| `DELETE` | `/missao/{id}` | Deleta a missão com o ID especificado.      | 200          |
+| `POST`   | `/missao/criar`| Cria uma nova missão.                       | 201, 400     |
+| `PUT`    | `/missao/{id}` | Atualiza os dados de uma missão.            | 200          |
+| `DELETE` | `/missao/{id}` | Deleta a missão com o ID especificado.      | 204          |
 
 #### Body - Exemplo para criar Missão.
 ```http
@@ -116,10 +117,11 @@ O Elo é uma plataforma digital desenvolvida com o objetivo de conectar voluntá
 | Método   | Rota           | Descrição                                   | Status Codes  |
 | :--------| :------------- | :------------------------------------------ | :------------ |
 | `GET`    | `/alerta`      | Retorna a lista de todos os alertas criados.| 200           |
+| `GET`    | `/alerta/listar`| Retorna todos alertas não deletados        | 200           |
 | `GET`    | `/alerta/{id}` | Retorna um único alerta pelo ID.            | 200, 404      |
-| `POST`   | `/alerta/criar`| Cria um novo alerta.                        | 201           |
-| `PUT`    | `/alerta/{id}` | Atualiza os dados de um alerta.             | 200, 401      | 
-| `DELETE` | `/alerta/{id}` | Deleta o alerta com o ID especificado.      | 200           |
+| `POST`   | `/alerta/criar`| Cria um novo alerta.                        | 201, 400      |
+| `PUT`    | `/alerta/{id}` | Atualiza os dados de um alerta.             | 200           | 
+| `DELETE` | `/alerta/{id}` | Deleta o alerta com o ID especificado.      | 204           |
 
 #### Body - Exemplo para criar Alerta.
 ```http
