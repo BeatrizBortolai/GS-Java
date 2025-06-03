@@ -89,12 +89,10 @@ O Elo é uma plataforma digital desenvolvida com o objetivo de conectar voluntá
 #### Body - Exemplo para criar Missão.
 ```http
   {
-    "titulo": "Ação comunitária no Jardim Romano após enchente",
-    "localizacao": "Avenida Doutor José Arthur Nova, Jardim Romano - São Paulo/SP",
-    "organizacao": "Voluntários Unidos",
-    "descricao": "Mutirão no dia 06/06/2025 às 13:30 para ajudar na limpeza das casas
-    afetadas, distribuição de alimentos e arrecadação de móveis básicos para as
-    famílias atingidas pela enchente."
+  "titulo": "Ação comunitária no Jardim Romano após enchente",
+  "localizacao": "Avenida Doutor José Arthur Nova, Jardim Romano - São Paulo/SP",
+  "organizacao": "Voluntários Unidos",
+  "descricao": "Mutirão no dia 06/06/2025 às 13:30 para ajudar na limpeza das casas afetadas, distribuição de alimentos e arrecadação de móveis básicos para as famílias atingidas pela enchente."
   }
 ```
 
